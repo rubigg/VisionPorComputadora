@@ -17,8 +17,8 @@ public class GreyScale {
             img = ImageIO.read(i);
         }catch (IOException ioe){}
 
-            int height = img.getHeight();
-            int width = img.getWidth();
+            int height = img.getHeight();//alto
+            int width = img.getWidth(); //ancho
 
             //esqueleto para todas las imagenes, scar el ancho y el alto y recorrer la matriz
             for (int y=0; y<height; y++){
@@ -44,8 +44,8 @@ public class GreyScale {
             i = new File("C:\\Users\\Rubi\\Documents\\lugar.jpg");
             ImageIO.write(img, "jpg", i);
 
-        }catch (IOException ioe){
+        }catch (IOException ioe){}
 
-        }
-    }
-}
+    }//main
+
+}//class
