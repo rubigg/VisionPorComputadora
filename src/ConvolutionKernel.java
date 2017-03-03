@@ -37,7 +37,7 @@ public class ConvolutionKernel {
         BufferedImage imgOutput=null;
 
         try {
-            f = new File("C:\\Users\\Rubi\\Documents\\alemania.jpg");
+            f = new File("C:\\Users\\Rubi\\Documents\\tigre.jpg");
             imgInput = ImageIO.read(f);
         }catch (IOException ioe){System.out.println("No se encuentra la imagen");}
 
@@ -46,8 +46,6 @@ public class ConvolutionKernel {
 
         imgOutput = new BufferedImage(ancho, alto, imgInput.getType());
 
-        double suma=0;
-        int mult_factor = 1;
         int tamañoMatrix = 3;
         int s = tamañoMatrix / 2;
 
@@ -72,7 +70,7 @@ public class ConvolutionKernel {
                         int b = p&0xff;
 
                 //El RGB se multiplica con el elemento actual del kernel y
-                        // se añade a las variables rojo, verde y azul
+                        // se añade a las variables red, green, blue
                         red += (r*matrix[i][j]);
                         green += (g*matrix[i][j]);
                         blue += (b*matrix[i][j]);
@@ -83,18 +81,20 @@ public class ConvolutionKernel {
                 } //for j
 
                 //para asegurarse de que RGB esté dentro del alcance de 255
-                red =  Math.min(Math.max((red*mult_factor),0),255);
-				green = Math.min(Math.max((green*mult_factor),0),255);
-				blue = Math.min(Math.max((blue*mult_factor),0),255);
+                //obtenemos el valor minimo de 0 y el valor maximo de 255
+
+                red =  Math.min(Math.max(red,0),255);
+                green = Math.min(Math.max(green,0),255);
+                blue = Math.min(Math.max(blue,0),255);
 
                 // Pixel se escribe en la imagen
-                imgOutput.setRGB(x,y, new Color(red, green, blue).getRGB());
+                imgOutput.setRGB(x,y, new Color(red, green, blue).getRGB()); //Color maneja los colores primarios RGB manejando números enteros comprendidos entre 0 y 255
 
             } //for j
         }//for i
 
         try{
-            f= new File("C:\\Users\\Rubi\\Documents\\alemaniaK.jpg");
+            f= new File("C:\\Users\\Rubi\\Documents\\tigreK.jpg");
             ImageIO.write(imgOutput, "jpg", f);
 
         }catch (IOException ioe){System.out.println("No se encuentra la imagen");}
