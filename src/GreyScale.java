@@ -13,7 +13,7 @@ public class GreyScale {
         File i = null;
 
         try {
-            i = new File("C:\\Users\\Rubi\\Documents\\playa.jpg");
+            i = new File("C:\\Users\\Rubi\\Documents\\cogollero.jpg");
             img = ImageIO.read(i);
         }catch (IOException ioe){}
 
@@ -23,6 +23,7 @@ public class GreyScale {
             //esqueleto para todas las imagenes, scar el ancho y el alto y recorrer la matriz
             for (int y=0; y<height; y++){
                 for (int x=0; x<width; x++){
+
                      int p = img.getRGB(x,y);
 
                     int a = (p>>24)&0xff; //ff es la mascara, and es true o 1 siempre que sea permite pasar los bits que esten prendidos
@@ -41,7 +42,7 @@ public class GreyScale {
             }
 
         try{
-            i = new File("C:\\Users\\Rubi\\Documents\\lugar.jpg");
+            i = new File("C:\\Users\\Rubi\\Documents\\cogolleroGrayScale.jpg");
             ImageIO.write(img, "jpg", i);
 
         }catch (IOException ioe){}
