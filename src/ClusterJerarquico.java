@@ -11,6 +11,7 @@ public class ClusterJerarquico {
         Scanner entrada = new Scanner(System.in);
         int nElementos;
         int temp;
+        String temp1;
 
         System.out.println("Cantidad de elementos ");
         nElementos= entrada.nextInt();
@@ -39,6 +40,9 @@ public class ClusterJerarquico {
                     temp = valorPunto[j];
                     valorPunto[j] = valorPunto[k];
                     valorPunto[k] = temp;
+                    temp1 = nombrePunto[j];
+                    nombrePunto[j] = nombrePunto[k];
+                    nombrePunto[k] = temp1;
                 }
             }
         }
@@ -46,7 +50,7 @@ public class ClusterJerarquico {
         for(int i=0; i<nElementos-1; i++)
         {
             System.out.println("\nPaso " + i);
-            //acomo del nombre de las variables
+            //acomodo del nombre de las variables
             nombrePunto[0] = nombrePunto[0] + nombrePunto[i+1];
             nombrePunto[i+1]=" ";
 
