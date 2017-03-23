@@ -13,7 +13,7 @@ public class GreyScale {
         File i = null;
 
         try {
-            i = new File("C:\\Users\\Rubi\\Documents\\cogollero.jpg");
+            i = new File("C:\\Users\\Rubi\\Documents\\gusano.jpg");
             img = ImageIO.read(i);
         }catch (IOException ioe){}
 
@@ -42,7 +42,7 @@ public class GreyScale {
             }
 
         try{
-            i = new File("C:\\Users\\Rubi\\Documents\\cogolleroGrayScale.jpg");
+            i = new File("C:\\Users\\Rubi\\Documents\\gusano1.jpg");
             ImageIO.write(img, "jpg", i);
 
         }catch (IOException ioe){}
